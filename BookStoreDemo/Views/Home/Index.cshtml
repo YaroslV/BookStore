@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        Book Search
+    </div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("GetBook", "Books", new AjaxOptions() { 
+                                                                        HttpMethod = "GET",
+                                                                        UpdateTargetId = "resultBook",
+                                                                        InsertionMode = InsertionMode.Replace,
+                                                                        OnFailure = "searchFailed"                                                                                               
+                                                                     }
+        ))
+        { 
+            <input type="text" name="q" data-autocomplete-source="@Url.Action("BookSearch", "Books")" />        
+            <input type="submit" value="Search" class="btn btn-default">
+        }
+    </div>
+    <div id="resultBook"></div>
+
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>    
+    <script src="~/Scripts/BookScript.js"></script>
+}
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<BookStoreDemo.Models.Book>
+
+<div id="searchResult">
+    <ul>
+        @foreach (var book in Model)
+        {
+            <li>@book.BookName</li>
+        }
+    </ul>
+</div>

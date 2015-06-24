@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BookStoreDemo.Models.Book>
+
+<table class="table table-hover">
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.BookName)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.BookNumberOfPages)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.BookAuthor)
+        </td>
+        <td>
+            @*empty space*@
+        </td>
+    </tr>
+
+    @foreach(var book in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(b => book.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(b => book.BookNumberOfPages)
+            </td>
+            <td>
+                @Html.DisplayFor(b => book.BookAuthor.AuthorName)
+            </td>
+            <td>
+              @Html.ActionLink("Push to your order","PushBookToOrder","Books", new { b = book.BookName }, new { @class = "btn bt"})
+            </td>
+        </tr>
+    }
+
+</table>
