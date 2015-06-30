@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace BookStoreDemo.Models
 {
     public class Order
     {
-        public Order()
-        {
-            BooksInOrder = new List<Book>();
-        }
         public int OrderId { get; set; }
-        public string OrderCountry  { get; set; }
-        public string OrderCity { get; set; }
-        public virtual ICollection<Book> BooksInOrder { get; set; }
+        public string FirstName{ get; set; }
+        public string LastName{ get; set; }
+        public string City{ get; set; }
+        public string Address{ get; set; }
+        public string Phone{ get; set; }
+        public DateTime OrderDate{ get; set; }
+        public decimal Total{ get; set; }
+        
+        public virtual ICollection<OrderDetails> OrderDetails{ get; set; }
     }
 }
